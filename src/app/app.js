@@ -1,25 +1,33 @@
 import angular from 'angular';
 
-import '../style/app.css';
+import name from './components/app.ctr';
 
-let app = () => {
-  return {
-    template: require('./app.html'),
-    controller: 'AppCtrl',
-    controllerAs: 'app'
-  }
-};
+var app=angular.module('myApp',[])
+.controller('name',name);
 
-class AppCtrl {
-  constructor() {
-    this.url = 'https://github.com/preboot/angular-webpack';
-  }
-}
+//window.app = app;
 
-const MODULE_NAME = 'app';
 
-angular.module(MODULE_NAME, [])
-  .directive('app', app)
-  .controller('AppCtrl', AppCtrl);
 
-export default MODULE_NAME;
+// import '../style/app.css';
+
+// let app = () => {
+//   return {
+//     template:require('./app.html'),
+//     controller: 'AppCtrl',
+//     controllerAs: 'app'
+//   }
+// };
+
+// class AppCtrl {
+//   constructor() {
+//     this.url = 'https://github.com/preboot/angular-webpack';
+//   }
+// }
+
+// const MODULE_NAME = 'app';
+
+// angular.module(MODULE_NAME, [])
+//   .directive('app', app)
+//   .controller('AppCtrl', AppCtrl);
+ export default 'myApp';

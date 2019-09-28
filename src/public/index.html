@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app="app" lang="en">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Angular App</title>
@@ -8,7 +8,10 @@
 
   <base href="/">
 </head>
-<body>
-  <app></app>
+<body ng-app='myApp' ng-controller='name'>
+  <input placeholder="enter your name" ng-model="name"></input>
+  <p>{{name}}</p>
+  <!-- <app></app> -->
 </body>
+<script></script>
 </html>

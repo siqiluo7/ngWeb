@@ -2,7 +2,8 @@ import angular from 'angular';
 import ngMaterial from 'angular-material';
 import ngAnimate from 'angular-animate';
 import ngArial from 'angular-aria';
-import '/Users/siqiluo/my-app/node_modules/angular-material/angular-material.min.css';
+import '../../node_modules/angular-material/angular-material.min.css';
+import '../../node_modules/@mdi/angular-material/build'
 
 import name from './components/app.ctr';
 

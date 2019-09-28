@@ -20,8 +20,12 @@
   },
   "homepage": "https://github.com/preboot/angularjs-webpack",
   "dependencies": {
+    "@mdi/angular-material": "^4.4.95",
     "angular": "^1.7.0",
-    "angular-material": "^1.1.20"
+    "angular-animate": "^1.7.8",
+    "angular-aria": "^1.7.8",
+    "angular-material": "^1.1.20",
+    "angular-messages": "^1.7.8"
   },
   "devDependencies": {
     "ajv": "^6.4.0",
@@ -37,7 +41,7 @@
     "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.2.0",
     "istanbul-instrumenter-loader": "^3.0.1",
-    "jasmine-core": "^3.1.0",
+    "jasmine-core": "^3.5.0",
     "karma": "^2.0.2",
     "karma-coverage": "^1.0.0",
     "karma-jasmine": "^1.0.2",

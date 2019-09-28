@@ -1,11 +1,31 @@
 import angular from 'angular';
+import ngMaterial from 'angular-material';
+import ngAnimate from 'angular-animate';
+import ngArial from 'angular-aria';
+import '/Users/siqiluo/my-app/node_modules/angular-material/angular-material.min.css';
 
 import name from './components/app.ctr';
 
-var app=angular.module('myApp',[])
-.controller('name',name);
+
 
 //window.app = app;
+
+var app=angular.module('myApp',[ngMaterial,ngAnimate,ngArial])
+.controller('name',name)
+.config(function($mdThemingProvider){
+  $mdThemingProvider.theme('default')
+  .primaryPalette('teal')
+  .accentPalette('orange');
+
+})
+.directive('app',function(){
+  return{
+    template:require('./app.html'),
+    restrict:'E'
+    
+    
+  }
+});
 
 
 
@@ -30,4 +50,4 @@ var app=angular.module('myApp',[])
 // angular.module(MODULE_NAME, [])
 //   .directive('app', app)
 //   .controller('AppCtrl', AppCtrl);
- export default 'myApp';
+ export default app;

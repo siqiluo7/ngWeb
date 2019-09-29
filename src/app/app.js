@@ -3,16 +3,19 @@ import ngMaterial from 'angular-material';
 import ngAnimate from 'angular-animate';
 import ngArial from 'angular-aria';
 import '../../node_modules/angular-material/angular-material.min.css';
-import '../../node_modules/@mdi/angular-material/build'
-
+// import '../../node_modules/@mdi/angular-material/build'
+import bootstrap from 'angular-ui-bootstrap';
+import cards from './components/cards.ctr';
 import name from './components/app.ctr';
+import '../style/index.scss';
 
 
-
+ 
 //window.app = app;
 
 var app=angular.module('myApp',[ngMaterial,ngAnimate,ngArial])
 .controller('name',name)
+.controller('cards',cards)
 .config(function($mdThemingProvider){
   $mdThemingProvider.theme('default')
   .primaryPalette('teal')

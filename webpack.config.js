@@ -4,7 +4,7 @@
 var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var MiniCssExtractPlugin = require('mini-css-extract-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
 
@@ -102,15 +102,36 @@ module.exports = function makeWebpackConfig() {
       //
       // Reference: https://github.com/webpack/style-loader
       // Use style-loader in development.
-
-      loader: isTest ? 'null-loader' : ExtractTextPlugin.extract({
-        fallbackLoader: 'style-loader',
-        loader: [
-          {loader: 'css-loader', query: {sourceMap: true}},
-          {loader: 'postcss-loader'}
-        ],
-      })
+      use: [
+        {
+          loader: isTest ? "null-loader" : MiniCssExtractPlugin.loader,
+          options: {
+            // you can specify a publicPath here
+            // by default it uses publicPath in webpackOptions.output
+            publicPath: '../',
+            hmr: process.env.NODE_ENV === 'development',
+          },
+        },
+        "css-loader",
+        "postcss-loader",
+      ],
     }, {
+      test: /\.s[ac]ss$/i,
+      use: [
+        'style-loader',
+        'css-loader',
+        {
+          loader: 'sass-loader',
+          options: {
+            sassOptions: {
+              indentWidth: 4,
+              includePaths: ['absolute/path/a', 'absolute/path/b'],
+            },
+          },
+        },
+      ],
+    },
+    {
       // ASSET LOADER
       // Reference: https://github.com/webpack/file-loader
       // Copy png, jpg, jpeg, gif, svg, woff, woff2, ttf, eot files to output
@@ -185,7 +206,7 @@ module.exports = function makeWebpackConfig() {
       // Reference: https://github.com/webpack/extract-text-webpack-plugin
       // Extract css files
       // Disabled when in test mode or not in build mode
-      new ExtractTextPlugin({filename: 'css/[name].css', disable: !isProd, allChunks: true})
+      new MiniCssExtractPlugin({filename: 'css/[name].css', disable: !isProd, allChunks: true})
     )
   }
 

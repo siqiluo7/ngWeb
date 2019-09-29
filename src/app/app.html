@@ -9,6 +9,31 @@
         </md-button>
       </div>
     </md-toolbar>
+    <div ng-controller="cards">
+        <mg-content class="md-padding" layout="row" layout-wrap >
+            <md-card flex="30" class="card" ng-repeat="card in cards">
+                <div layout="row">
+                    <md-button ng-click="showContact = true">Contract</md-button>
+                    <md-button ng-click="showContact = flase">Details</md-button>
+                  </div>
+              <div class="card-info" ng-show="!showContact">
+                  <p> {{card.text}}</p>
+                  <img ng-src="{{card.image}}"></img>
+              </div>
+             <div class="card-contact" ng-show="showContact">
+                <p><md-icon class="mdi mdi-email">email</md-icon>{{card.email}}</p>
+                <p><md-icon class="mdi mdi-phone">phone</md-icon>{{card.phone}}</p>
+                <p><md-icon class="mdi mdi-chat">chat</md-icon>{{card.isOnline }}</p>
+               <!-- <p><md-icon md-font-library="material-icons">face</md-icon>{{ card.email }}</p> -->
+               
+             </div>
+             
+             
+             
+            </md-card>
+          </mg-content>
+    </div>
+    
 </main>
 <footer>
   <a ng-href="{{app.url}}">Webpack Angular Starter</a>

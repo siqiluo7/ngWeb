@@ -13,12 +13,20 @@
         <mg-content class="md-padding" layout="row" layout-wrap >
             <md-card flex="30" class="card" ng-repeat="card in cards">
                 <div layout="row">
-                    <md-button ng-click="showContact = true">Contract</md-button>
+                    
                     <md-button ng-click="showContact = flase">Details</md-button>
+                    <md-button ng-click="showAdmin = true">Admin</md-button>
+                  
+                  </div>
+                  <div ng-show="showAdmin">
+                      <md-button ng-click="showContact = flase">Delete</md-button>
+                      <md-button ng-click="showContact = flase">Close</md-button>
+                      
                   </div>
               <div class="card-info" ng-show="!showContact">
                   <p> {{card.text}}</p>
                   <img ng-src="{{card.image}}"></img>
+                  <md-button ng-click="showContact = true">Contact</md-button>
               </div>
              <div class="card-contact" ng-show="showContact">
                 <p><md-icon class="mdi mdi-email">email</md-icon>{{card.email}}</p>

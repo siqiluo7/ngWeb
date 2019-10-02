@@ -8,6 +8,7 @@ import bootstrap from 'angular-ui-bootstrap';
 import cards from './components/cards.ctr';
 import name from './components/app.ctr';
 import '../style/index.scss';
+import from ''
 
 
  
